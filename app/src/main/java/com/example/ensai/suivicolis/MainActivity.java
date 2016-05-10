@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //A faire : afficher la table SQL dans la listView
+        //Autoriser la modification d'une livraion Bob
+        //Suppression Bob
+
+
 
         UPS.setNom("UPS");
         UPS.setURLtransporteur("https://track.aftership.com/ups/%1");
