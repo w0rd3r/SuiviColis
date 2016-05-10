@@ -1,5 +1,8 @@
 package com.example.ensai.suivicolis;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,7 +48,14 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
         newColis.setReference(reference);
         //newColis.setTransporteur(transporteur);
 
+        SQLiteDatabase db = new BaseDonnees(this).getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("numero",reference);
+        values.put("nomTransporteur",transporteur);
+        values.put("description",description);
+        long row=db.insert("Colis",null,values);
 
+        db.close();
         AjouterColis.this.finish();
 
         Toast.makeText(this,"Colis ajouté",Toast.LENGTH_LONG).show();
