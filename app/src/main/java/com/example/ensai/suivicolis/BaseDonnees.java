@@ -21,6 +21,19 @@ public class BaseDonnees extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Colis(numero TEXT PRIMARY KEY, nomTransporteur TEXT, description TEXT)");
         db.execSQL("CREATE TABLE Tansporteur(nomTransporteur TEXT PRIMARY KEY,url TEXT)");
 
+        ContentValues values=new ContentValues();
+
+        values.put("nomTransporteur", "Chronopost");
+        values.put("url", "https://track.aftership.com/chronopost-france/%1");
+
+        values.put("nomTransporteur", "Colissimo");
+        values.put("url", "https://track.aftership.com/la-poste-colissimo/%1");
+
+        values.put("nomTransporteur", "UPS");
+        values.put("url", "https://track.aftership.com/ups/%");
+
+        db.insert("Transporteur", null,values);
+
     }
 
     @Override
