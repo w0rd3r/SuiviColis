@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    List<Colis> colis = new ArrayList<Colis>();
+    Transporteur UPS = new Transporteur();
+    Transporteur Chronopost = new Transporteur();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +42,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        List<Colis> colis = new ArrayList<Colis>();
-        Transporteur UPS = new Transporteur();
+
         UPS.setNom("UPS");
         UPS.setURLtransporteur("https://track.aftership.com/ups/");
-        Transporteur Chronopost = new Transporteur();
+
         Chronopost.setNom("Chronopost");
         Chronopost.setURLtransporteur("https://track.aftership.com/chronopost-france/");
         Colis colis1 = new Colis();
