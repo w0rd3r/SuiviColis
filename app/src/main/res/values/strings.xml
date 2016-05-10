@@ -5,8 +5,10 @@
     <string name="Reference_colis"> Référence</string>
     <string name="transporteur">Transporteur</string>
     <string-array name="list_transporteur">
-        <item>La Poste</item>
         <item>Chronopost</item>
+        <item>Colissimo</item>
+        <item>UPS</item>
+
     </string-array>
     <string name="transporteur_prompt">Choisir un transporteur</string>
     <string name="description">Description</string>
