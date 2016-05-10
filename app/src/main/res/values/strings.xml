@@ -8,4 +8,5 @@
         <item>La Poste</item>
         <item>Chronopost</item>
     </string-array>
+    <string name="transporteur_prompt">Choisir un transporteur</string>
 </resources>
