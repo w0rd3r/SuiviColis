@@ -11,6 +11,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+
 /**
  * Created by ensai on 10/05/16.
  */
@@ -29,7 +30,7 @@ public class ListView extends MainActivity {
         setContentView(R.layout.content_main);
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(list);
 
         // Defined Array values to show in ListView
         String[] values = new String[]{"Android List View",
