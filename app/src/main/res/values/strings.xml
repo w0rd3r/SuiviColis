@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">SuiviColis</string>
     <string name="action_settings">Settings</string>
+    <string name="nouveau_colis">Ajout d\'un nouveau colis</string>
+    <string name="Reference_colis"> Référence</string>
+    <string name="transporteur">Transporteur</string>
+    <string-array name="list_transporteur">
+        <item>La Poste</item>
+        <item>Chronopost</item>
+    </string-array>
+    <string name="transporteur_prompt">Choisir un transporteur</string>
+    <string name="description">Description</string>
 </resources>
