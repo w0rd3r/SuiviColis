@@ -43,7 +43,7 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
         Colis newColis = new Colis();
         newColis.setDescription(description);
         newColis.setReference(reference);
-        newColis.setTransporteur(transporteur);
+        //newColis.setTransporteur(transporteur);
 
 
         AjouterColis.this.finish();

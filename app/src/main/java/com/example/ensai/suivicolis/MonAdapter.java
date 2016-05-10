@@ -39,7 +39,7 @@ public class MonAdapter extends BaseAdapter {
         TextView description = (TextView) view.findViewById(R.id.description);
         description.setText(colis.getDescription());
         TextView transporteur = (TextView) view.findViewById(R.id.transporteur);
-        transporteur.setText(colis.getTransporteur());
+        transporteur.setText(colis.getTransporteur().getNom());
 
         return view;
     }

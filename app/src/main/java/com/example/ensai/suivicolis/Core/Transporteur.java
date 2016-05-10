@@ -4,7 +4,7 @@ package com.example.ensai.suivicolis.Core;
  * Created by ensai on 10/05/16.
  */
 public class Transporteur {
-    private String nom;
+    public String nom;
 
     public String getNom() {
         return nom;
@@ -22,6 +22,6 @@ public class Transporteur {
         this.URLtransporteur = URLtransporteur;
     }
 
-    private String URLtransporteur;
+    public String URLtransporteur;
 }
 

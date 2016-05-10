@@ -4,7 +4,7 @@ package com.example.ensai.suivicolis.Core;
  * Created by ensai on 10/05/16.
  */
 public class Colis {
-    private String transporteur;
+    private Transporteur transporteur;
     private String description;
     private String reference;
 
@@ -16,11 +16,11 @@ public class Colis {
         this.reference = reference;
     }
 
-    public String getTransporteur() {
+    public Transporteur getTransporteur() {
         return transporteur;
     }
 
-    public void setTransporteur(String transporteur) {
+    public void setTransporteur(Transporteur transporteur) {
         this.transporteur = transporteur;
     }
 
@@ -33,6 +33,6 @@ public class Colis {
     }
 
     public String getURL() {
-        return "http://google.fr";
+       return this.transporteur.getURLtransporteur().replaceAll("%1",getReference());
     }
 }
