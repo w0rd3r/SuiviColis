@@ -13,23 +13,11 @@
     tools:context="com.example.ensai.suivicolis.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Référence"
-        />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saisir la référence de suivi"
-        android:inputType="text"
-        />
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list"
-        android:backgroundTint="@android:color/holo_red_dark"
         >
 
     </ListView>
