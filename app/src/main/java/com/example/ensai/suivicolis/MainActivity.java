@@ -8,6 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.example.ensai.suivicolis.Core.Colis;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        List<Colis> colis = new ArrayList<Colis>();
+        Colis coli = new Colis();
+        coli.setDescription("tot");
+        coli.setTransporteur("UPS");
+        colis.add(coli);
+        MonAdapter adapter = new MonAdapter(this, colis);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
 
     }
 
