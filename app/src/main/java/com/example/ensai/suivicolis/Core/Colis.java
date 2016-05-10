@@ -31,4 +31,8 @@ public class Colis {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getURL() {
+        return "http://google.fr";
+    }
 }
