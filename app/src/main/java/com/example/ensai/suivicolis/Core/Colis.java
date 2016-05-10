@@ -6,6 +6,15 @@ package com.example.ensai.suivicolis.Core;
 public class Colis {
     private String transporteur;
     private String description;
+    private String reference;
+
+    public String getReference(){
+        return reference;
+    }
+
+    public void setReference(String reference){
+        this.reference = reference;
+    }
 
     public String getTransporteur() {
         return transporteur;

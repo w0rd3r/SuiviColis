@@ -37,10 +37,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         List<Colis> colis = new ArrayList<Colis>();
-        Colis coli = new Colis();
-        coli.setDescription("tot");
-        coli.setTransporteur("UPS");
-        colis.add(coli);
+        Colis colis1 = new Colis();
+        colis1.setDescription("iPhone");
+        colis1.setTransporteur("UPS");
+        colis.add(colis1);
+        Colis colis2 = new Colis();
+        colis2.setDescription("iPad");
+        colis2.setTransporteur("Chronopost");
+        colis.add(colis2);
         MonAdapter adapter = new MonAdapter(this, colis);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
