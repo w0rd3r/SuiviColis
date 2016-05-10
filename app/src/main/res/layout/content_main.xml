@@ -9,6 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
     tools:context="com.example.ensai.suivicolis.MainActivity"
     tools:showIn="@layout/activity_main">
 
@@ -24,11 +25,13 @@
         android:text="Saisir la référence de suivi"
         android:inputType="text"
         />
-    <ExpandableListView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:backgroundTint="@android:color/holo_red_dark"
         >
 
-    </ExpandableListView>
+    </ListView>
 
 </LinearLayout>
