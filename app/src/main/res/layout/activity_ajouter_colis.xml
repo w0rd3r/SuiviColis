@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/description"/>
 
+
     </LinearLayout>
 
 </RelativeLayout>
