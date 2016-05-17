@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //Autoriser la modification d'une livraion Bob
         //Suppression Bob
 
-
+/*J'ai essayé de faire en sort que les trucs qui sont dans la base s'affiche. Mais ça marche pas trop ...
         SQLiteOpenHelper helper = new BaseDonnees(this);
         SQLiteDatabase readableDB = helper.getReadableDatabase();
 
@@ -68,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
             newColis.setDescription(cursor.getString(2));
 
             colis.add(newColis);
+            cursor.close();
+            cursorTransporteurURL.close();
 
         }
-
+*/
 
         UPS.setNom("UPS");
         UPS.setURLtransporteur("https://track.aftership.com/ups/%1");
