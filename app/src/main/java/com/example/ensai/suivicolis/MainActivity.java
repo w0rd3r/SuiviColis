@@ -1,6 +1,9 @@
 package com.example.ensai.suivicolis;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -46,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         //Autoriser la modification d'une livraion Bob
         //Suppression Bob
 
+
+        SQLiteOpenHelper helper = new BaseDonnees(this);
+        SQLiteDatabase readableDB = helper.getReadableDatabase();
+
+        Cursor cursor = readableDB.rawQuery("SELECT * FROM Colis", null);
+        Cursor cursorTransporteurURL = readableDB.rawQuery("SELECT url FROM Transporteur where nomTransporteur = "+cursor.getString(1),null);
+
+        while(cursor.moveToNext()){
+           Colis newColis = new Colis();
+            Transporteur transpoteur =new Transporteur();
+            transpoteur.setNom(cursor.getString(1));
+            transpoteur.setURLtransporteur(cursorTransporteurURL.getString(0));
+
+
+            newColis.setReference(cursor.getString(0));
+            newColis.setTransporteur(transpoteur);
+            newColis.setDescription(cursor.getString(2));
+
+            colis.add(newColis);
+
+        }
 
 
         UPS.setNom("UPS");

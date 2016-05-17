@@ -5,6 +5,8 @@ package com.example.ensai.suivicolis.Core;
  */
 public class Transporteur {
     public String nom;
+    public String URLtransporteur;
+
 
     public String getNom() {
         return nom;
@@ -22,6 +24,6 @@ public class Transporteur {
         this.URLtransporteur = URLtransporteur;
     }
 
-    public String URLtransporteur;
+
 }
 

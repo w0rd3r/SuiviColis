@@ -51,14 +51,21 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
         SQLiteDatabase db = new BaseDonnees(this).getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("numero",reference);
-        values.put("nomTransporteur",transporteur);
-        values.put("description",description);
+        values.put("nomTransporteur", transporteur);
+        values.put("description", description);
         long row=db.insert("Colis",null,values);
 
         db.close();
-        AjouterColis.this.finish();
 
-        Toast.makeText(this,"Colis ajouté",Toast.LENGTH_LONG).show();
+
+       /*try {*/
+           AjouterColis.this.finish();
+
+           Toast.makeText(this, "Colis ajouté", Toast.LENGTH_LONG).show();
+       /*}
+       catch (Exception e){
+           Toast.makeText(this, "Cette référence de colis de correspond pas à un colis de "+transporteur, Toast.LENGTH_LONG).show();
+       }*/
 
     }
 }
