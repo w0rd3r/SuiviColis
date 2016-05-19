@@ -42,24 +42,6 @@ public class MonAdapter extends BaseAdapter {
         description.setText(colis.getDescription());
         TextView transporteur = (TextView) view.findViewById(R.id.transporteur);
         transporteur.setText(colis.getTransporteur().getNom());
-        Button supprimer = (Button)view.findViewById(R.id.Supprimer);
-        Button modifier = (Button)view.findViewById(R.id.modifier);
-
-        supprimer.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //do something
-
-                notifyDataSetChanged();
-            }
-        });
-        modifier.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //do something
-                notifyDataSetChanged();
-            }
-        });
 
         return view;
     }
