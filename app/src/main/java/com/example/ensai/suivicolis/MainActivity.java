@@ -80,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
         Chronopost.setURLtransporteur("https://track.aftership.com/chronopost-france/%1");
 
         Colis colis1 = new Colis();
-        colis1.setDescription("iPhone");
+        colis1.setDescription("Chaussures");
         colis1.setTransporteur(UPS);
         colis1.setReference("1ZAE9558YW00052224");
         colis.add(colis1);
 
         Colis colis2 = new Colis();
-        colis2.setDescription("iPad");
+        colis2.setDescription("Carte Mémoire");
         colis2.setTransporteur(Chronopost);
         colis2.setReference("MN262767032JB");
         colis.add(colis2);

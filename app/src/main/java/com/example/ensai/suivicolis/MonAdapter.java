@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ensai.suivicolis.Core.Colis;
@@ -26,7 +28,7 @@ public class MonAdapter extends BaseAdapter {
 
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view;
         if (convertView == null) {
             view = ((LayoutInflater)
@@ -35,11 +37,29 @@ public class MonAdapter extends BaseAdapter {
             view = convertView;
         }
 
-        Colis colis = (Colis) getItem(position);
+        final Colis colis = (Colis) getItem(position);
         TextView description = (TextView) view.findViewById(R.id.description);
         description.setText(colis.getDescription());
         TextView transporteur = (TextView) view.findViewById(R.id.transporteur);
         transporteur.setText(colis.getTransporteur().getNom());
+        Button supprimer = (Button)view.findViewById(R.id.Supprimer);
+        Button modifier = (Button)view.findViewById(R.id.modifier);
+
+        supprimer.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //do something
+
+                notifyDataSetChanged();
+            }
+        });
+        modifier.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //do something
+                notifyDataSetChanged();
+            }
+        });
 
         return view;
     }
@@ -55,5 +75,7 @@ public class MonAdapter extends BaseAdapter {
     public int getCount() {
         return colis.size();
     }
+
+
 }
 
