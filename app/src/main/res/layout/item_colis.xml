@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Supprimer"
+        android:layout_marginLeft="250dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"/>
 
@@ -28,5 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/Supprimer"
         android:layout_centerVertical="true"
-        android:text="Modifier" />
+        android:text="Modifier"
+        android:layout_marginLeft="250dp" />
 </LinearLayout>
