@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
         }
 
         editTextReference = (EditText) findViewById(R.id.edit_text_reference);
-        String reference = editTextReference.getText().toString();
+        String reference = editTextReference.getText().toString().toUpperCase();
         if (reference.matches("")){
             Toast.makeText(this, "La reférence ne peut être vide", Toast.LENGTH_SHORT).show();
             return;
@@ -73,10 +74,12 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
            AjouterColis.this.finish();
 
            Toast.makeText(this, "Colis ajouté", Toast.LENGTH_LONG).show();
+
        /*}
        catch (Exception e){
            Toast.makeText(this, "Cette référence de colis de correspond pas à un colis de "+transporteur, Toast.LENGTH_LONG).show();
        }*/
 
     }
+
 }

@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if(nomTransporteur.equals("UPS")){
                 transporteurCourant.setNom("UPS");
-                transporteurCourant.setURLtransporteur("https://track.aftership.com/ups/%");
+                transporteurCourant.setURLtransporteur("https://track.aftership.com/ups/%1");
             }
 
             newColis.setReference(cursor.getString(0));
