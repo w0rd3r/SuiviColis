@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(MainActivity.this, AjouterColis.class);
+                MainActivity.this.finish();
                 startActivity(intent);
+
             }
         });
 
@@ -65,24 +67,24 @@ public class MainActivity extends AppCompatActivity {
             Log.e("TAG",cursor.getString(2));
 
             String nomTransporteur = cursor.getString(1);
-            Transporteur cronopost = new Transporteur();
+            Transporteur transporteurCourant = new Transporteur();
             Colis newColis = new Colis();
 
-            if(nomTransporteur=="Chronopost"){
-                cronopost.setNom("Chronopost");
-                cronopost.setURLtransporteur("https://track.aftership.com/chronopost-france/%1");
+            if(nomTransporteur.equals("Chronopost")){
+                transporteurCourant.setNom("Chronopost");
+                transporteurCourant.setURLtransporteur("https://track.aftership.com/chronopost-france/%1");
             }
-            if(nomTransporteur=="Colissimo"){
-                cronopost.setNom("Colissimo");
-                cronopost.setURLtransporteur("https://track.aftership.com/la-poste-colissimo/%1");
+            if(nomTransporteur.equals("Colissimo")){
+                transporteurCourant.setNom("Colissimo");
+                transporteurCourant.setURLtransporteur("https://track.aftership.com/la-poste-colissimo/%1");
             }
-            if(nomTransporteur=="Colissimo"){
-                cronopost.setNom("UPS");
-                cronopost.setURLtransporteur("https://track.aftership.com/ups/%");
+            if(nomTransporteur.equals("UPS")){
+                transporteurCourant.setNom("UPS");
+                transporteurCourant.setURLtransporteur("https://track.aftership.com/ups/%");
             }
 
             newColis.setReference(cursor.getString(0));
-            newColis.setTransporteur(cronopost);
+            newColis.setTransporteur(transporteurCourant);
             newColis.setDescription(cursor.getString(2));
             colis.add(newColis);
 
@@ -130,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         MonAdapter adapter = new MonAdapter(this, colis);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         listView = (ListView) findViewById(R.id.list);
         registerForContextMenu(listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -196,4 +199,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
