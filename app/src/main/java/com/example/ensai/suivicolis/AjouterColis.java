@@ -73,7 +73,7 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
        /*try {*/
            AjouterColis.this.finish();
 
-           Toast.makeText(this, "Colis ajouté", Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "Colis '"+description+"' ajouté", Toast.LENGTH_LONG).show();
 
        /*}
        catch (Exception e){

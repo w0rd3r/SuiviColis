@@ -1,5 +1,6 @@
 package com.example.ensai.suivicolis;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,8 +29,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<Colis> colis = new ArrayList<Colis>();
-    Transporteur UPS = new Transporteur();
-    Transporteur Chronopost = new Transporteur();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //A faire : afficher la table SQL dans la listView
-        //Autoriser la modification d'une livraion Bob
         //Suppression Bob
 
 /*J'ai essayé de faire en sort que les trucs qui sont dans la base s'affiche. Mais ça marche pas trop ...*/
@@ -112,22 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         cursor.close();
 
-        UPS.setNom("UPS");
-        UPS.setURLtransporteur("https://track.aftership.com/ups/%1");
-        Chronopost.setNom("Chronopost");
-        Chronopost.setURLtransporteur("https://track.aftership.com/chronopost-france/%1");
 
-        Colis colis1 = new Colis();
-        colis1.setDescription("Chaussures");
-        colis1.setTransporteur(UPS);
-        colis1.setReference("1ZAE9558YW00052224");
-        colis.add(colis1);
-
-        Colis colis2 = new Colis();
-        colis2.setDescription("Carte Mémoire");
-        colis2.setTransporteur(Chronopost);
-        colis2.setReference("MN262767032JB");
-        colis.add(colis2);
 
         MonAdapter adapter = new MonAdapter(this, colis);
         ListView listView = (ListView) findViewById(R.id.list);
@@ -166,13 +149,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch(item.getItemId()) {
-            case R.id.modifier:
-                // edit stuff here
-                return true;
-            case R.id.supprimer:
-                // remove stuff here
-                colis.remove(item);
 
+            case R.id.supprimer:
+
+                int index = info.position;
+                String reference = colis.get(index).getReference();
+                String description = colis.get(index).getDescription();
+
+
+                // Toast pour voir si la commande SQL est correcte
+                Toast.makeText(this, "Le colis "+description+" a été supprimé", Toast.LENGTH_LONG).show();
+
+                SQLiteOpenHelper helper = new BaseDonnees(this);
+                SQLiteDatabase db = helper.getWritableDatabase();
+                db.delete("Colis","numero = '" +reference+"'",null);
+
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onContextItemSelected(item);
