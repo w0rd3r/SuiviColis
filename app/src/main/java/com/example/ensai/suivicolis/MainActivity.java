@@ -10,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -51,30 +52,63 @@ public class MainActivity extends AppCompatActivity {
         //Autoriser la modification d'une livraion Bob
         //Suppression Bob
 
-/*J'ai essayé de faire en sort que les trucs qui sont dans la base s'affiche. Mais ça marche pas trop ...
+/*J'ai essayé de faire en sort que les trucs qui sont dans la base s'affiche. Mais ça marche pas trop ...*/
         SQLiteOpenHelper helper = new BaseDonnees(this);
         SQLiteDatabase readableDB = helper.getReadableDatabase();
 
         Cursor cursor = readableDB.rawQuery("SELECT * FROM Colis", null);
-        Cursor cursorTransporteurURL = readableDB.rawQuery("SELECT url FROM Transporteur where nomTransporteur = "+cursor.getString(1),null);
 
         while(cursor.moveToNext()){
-           Colis newColis = new Colis();
-            Transporteur transpoteur =new Transporteur();
-            transpoteur.setNom(cursor.getString(1));
-            transpoteur.setURLtransporteur(cursorTransporteurURL.getString(0));
 
+            Log.e("TAG",cursor.getString(1));
+            Log.e("TAG",cursor.getString(0));
+            Log.e("TAG",cursor.getString(2));
+
+            String nomTransporteur = cursor.getString(1);
+            Transporteur cronopost = new Transporteur();
+            Colis newColis = new Colis();
+
+            if(nomTransporteur=="Chronopost"){
+                cronopost.setNom("Chronopost");
+                cronopost.setURLtransporteur("https://track.aftership.com/chronopost-france/%1");
+            }
+            if(nomTransporteur=="Colissimo"){
+                cronopost.setNom("Colissimo");
+                cronopost.setURLtransporteur("https://track.aftership.com/la-poste-colissimo/%1");
+            }
+            if(nomTransporteur=="Colissimo"){
+                cronopost.setNom("UPS");
+                cronopost.setURLtransporteur("https://track.aftership.com/ups/%");
+            }
 
             newColis.setReference(cursor.getString(0));
+            newColis.setTransporteur(cronopost);
+            newColis.setDescription(cursor.getString(2));
+            colis.add(newColis);
+
+
+           /* Cursor cursorTransporteurURL = readableDB.rawQuery("SELECT * FROM TRANS where nomTransporteur =?", selectionArgs);
+            cursorTransporteurURL.moveToNext();
+            Log.e("TAG2kgjvksdfljvklc",cursorTransporteurURL.getString(0));
+            String[] selectionArgs=new String[]{cursor.getString(1)};
+            Colis newColis = new Colis();
+            Transporteur transpoteur = new Transporteur();
+
+            transpoteur.setNom(cursor.getString(1));
+            transpoteur.setURLtransporteur(cursorTransporteurURL.getString(1));
+            newColis.setReference(cursor.getString(0));
+
             newColis.setTransporteur(transpoteur);
+
             newColis.setDescription(cursor.getString(2));
 
             colis.add(newColis);
             cursor.close();
-            cursorTransporteurURL.close();
+            cursorTransporteurURL.close();*/
 
         }
-*/
+
+        cursor.close();
 
         UPS.setNom("UPS");
         UPS.setURLtransporteur("https://track.aftership.com/ups/%1");
