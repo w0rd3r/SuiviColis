@@ -13,4 +13,5 @@
     <string name="transporteur_prompt">Choisir un transporteur</string>
     <string name="description">Description</string>
     <string name="boutonAjouterColis">Ajouter</string>
+    <string name="boutonModifierColis">Modifier</string>
 </resources>

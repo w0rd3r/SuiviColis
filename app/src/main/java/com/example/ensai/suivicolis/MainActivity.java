@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
+                MainActivity.this.finish();
                 return true;
             default:
                 return super.onContextItemSelected(item);
