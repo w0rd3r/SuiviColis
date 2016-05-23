@@ -36,9 +36,17 @@ public class AjouterColis extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         editTextDescription = (EditText) findViewById(R.id.edit_text_description);
         String description = editTextDescription.getText().toString();
+        if (description.matches("")){
+            Toast.makeText(this, "La description ne peut être vide", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         editTextReference = (EditText) findViewById(R.id.edit_text_reference);
         String reference = editTextReference.getText().toString();
+        if (reference.matches("")){
+            Toast.makeText(this, "La reférence ne peut être vide", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         spinner =(Spinner) findViewById(R.id.listTransporteur);
         String transporteur =spinner.getSelectedItem().toString();

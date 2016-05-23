@@ -168,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.supprimer:
                 // remove stuff here
+                colis.remove(item);
+
                 return true;
             default:
                 return super.onContextItemSelected(item);
